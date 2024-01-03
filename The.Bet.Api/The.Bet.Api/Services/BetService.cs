@@ -12,19 +12,24 @@ namespace The.Bet.Api.Services
         {
             _iBetRepository = betRepository;
         }
-        public IEnumerable<BetModel> GetBets()
+        public async Task<string> GetBets()
         {
-            return _iBetRepository.GetBets();
+            return await _iBetRepository.GetBets();
         }
 
-        public int PlaceBet(int bet)
+        public async Task<string> Payout()
         {
-           return _iBetRepository.PlaceBet(bet);
+            return await _iBetRepository.Payout();
         }
 
-        public int Spin()
+        public async Task<int> PlaceBet(BetModel bet)
         {
-            return _iBetRepository.Spin();
+           return await _iBetRepository.PlaceBet(bet);
+        }
+
+        public async Task<int> Spin()
+        {
+            return await _iBetRepository.Spin();
         }
     }
 }

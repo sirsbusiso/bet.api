@@ -4,8 +4,9 @@ namespace The.Bet.Api.Repository.Interfaces
 {
     public interface IBetRepository
     {
-        int PlaceBet(int bet);
-        int Spin();
-        IEnumerable<BetModel> GetBets();
+        Task<int> PlaceBet(BetModel bet);
+        Task<int> Spin();
+        Task<string> GetBets();
+        Task<string> Payout();
     }
 }

@@ -4,8 +4,9 @@ namespace The.Bet.Api.Services.Interfaces
 {
     public interface IBetService
     {
-        int PlaceBet(int bet);
-        int Spin();
-        IEnumerable<BetModel> GetBets();
+        Task<int> PlaceBet(BetModel bet);
+        Task<int> Spin();
+        Task<string> GetBets();
+        Task<string> Payout();
     }
 }
